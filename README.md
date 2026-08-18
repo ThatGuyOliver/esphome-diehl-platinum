@@ -4,7 +4,7 @@ Esphome component to readout diehl platinum solar inverters
 ## example yaml:
 ```yaml
 external_components:
-   - source: github://Roeland54/esphome-diehl-platinum@main
+   - source: github://ThatGuyOliver/esphome-diehl-platinum@main
      components: [ diehl ]
 
 uart:
