@@ -1,4 +1,4 @@
-#UNSTABLE - WORK IN PROGRESS
+# UNSTABLE - WORK IN PROGRESS
 
 # esphome-diehl-platinum
 Esphome component to readout diehl platinum solar inverters
