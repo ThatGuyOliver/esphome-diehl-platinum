@@ -160,7 +160,6 @@ void DiehlComponent::update() {
     if (this->temp_3_sensor_ != nullptr) {
       this->temp_3_sensor_->publish_state(rx_msg[25]);
     }
-  }
 }
 
 void DiehlComponent::loop() {
@@ -303,4 +302,4 @@ int DiehlComponent::convert_to_seconds(int hour, int minute, int second) {
   return hour * 3600 + minute * 60 + second;
 }
 }  // namespace diehl
-}  // namespace esphome
+} // namespace esphome
