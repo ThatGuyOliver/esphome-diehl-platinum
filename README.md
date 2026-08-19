@@ -1,7 +1,7 @@
 # UNSTABLE - WORK IN PROGRESS
 
 # esphome-diehl-platinum
-Esphome component to readout diehl platinum solar inverters to use in Home Assistant
+Esphome component to readout diehl platinum solar inverters (to use in Home Assistant).
 
 | Quantity | Unit |
 |----------|----------|
@@ -31,6 +31,8 @@ sensor:
 ```
 
 ## Hardware
+### ESP board
+An ESP board that will run the ESPHome program
 ### Adapter
 Connect to the inverter trough a Max232 TTL => RS232 converter. ( e.g. https://aliexpress.com/item/1005006513010110.html)
 ### Cable
