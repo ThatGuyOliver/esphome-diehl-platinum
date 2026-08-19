@@ -11,7 +11,6 @@ from esphome.const import (
     STATE_CLASS_TOTAL_INCREASING,
     UNIT_WATT,
     UNIT_WATT_HOURS,
-    DEVICE_CLASS_NONE,
     DEVICE_CLASS_VOLTAGE,
     DEVICE_CLASS_CURRENT,
     DEVICE_CLASS_TEMPERATURE,
@@ -62,12 +61,12 @@ CONFIG_SCHEMA = (
             ),
             cv.Optional(CONF_STATUS): sensor.sensor_schema(
                  accuracy_decimals=0,
-                    device_class=DEVICE_CLASS_NONE,  # of een passende class
+                    #device_class=DEVICE_CLASS_NONE,  # of een passende class
                  state_class=STATE_CLASS_MEASUREMENT,
             ),
             cv.Optional(CONF_EVENT): sensor.sensor_schema(
                 accuracy_decimals=0,
-                device_class=DEVICE_CLASS_NONE,
+                #device_class=DEVICE_CLASS_NONE,
                 state_class=STATE_CLASS_MEASUREMENT,
             ),
             cv.Optional(CONF_DC_VOLTAGE): sensor.sensor_schema(
