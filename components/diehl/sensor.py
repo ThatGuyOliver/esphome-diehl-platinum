@@ -13,7 +13,7 @@ from esphome.const import (
     UNIT_WATT_HOURS
 )
 
-CODEOWNERS = ["@roeland54"]
+CODEOWNERS = ["@ThatGuyOliver"]
 DEPENDENCIES = ["uart", "time"]
 
 CONF_DAY_ENERGY = 'day_energy'
