@@ -10,7 +10,14 @@ from esphome.const import (
     STATE_CLASS_MEASUREMENT,
     STATE_CLASS_TOTAL_INCREASING,
     UNIT_WATT,
-    UNIT_WATT_HOURS
+    UNIT_WATT_HOURS,
+    DEVICE_CLASS_NONE,
+    DEVICE_CLASS_VOLTAGE,
+    DEVICE_CLASS_CURRENT,
+    DEVICE_CLASS_TEMPERATURE,
+    UNIT_VOLT,
+    UNIT_AMPERE,
+    UNIT_CELSIUS
 )
 
 CODEOWNERS = ["@ThatGuyOliver"]
@@ -135,25 +142,23 @@ async def to_code(config):
     time_ = await cg.get_variable(config[CONF_TIME_ID])
     cg.add(var.set_time(time_))
 
-    # Standard sensors
-    # Standard sensors
-for key in [
-    CONF_DAY_ENERGY,
-    CONF_POWER,
-    CONF_STATUS,
-    CONF_EVENT,
-    CONF_DC_VOLTAGE,
-    CONF_DC_CURRENT,
-    CONF_DC_POWER,
-    CONF_AC_VOLTAGE,
-    CONF_AC_CURRENT,
-    CONF_AC_POWER,
-    CONF_TEMP_1,
-    CONF_TEMP_2,
-    CONF_TEMP_3,
-]:
-    if key not in config:
-        continue
-    conf = config[key]
-    sens = await sensor.new_sensor(conf)
-    cg.add(getattr(var, f"set_{key}_sensor")(sens))
+    for key in [
+        CONF_DAY_ENERGY,
+        CONF_POWER,
+        CONF_STATUS,
+        CONF_EVENT,
+        CONF_DC_VOLTAGE,
+        CONF_DC_CURRENT,
+        CONF_DC_POWER,
+        CONF_AC_VOLTAGE,
+        CONF_AC_CURRENT,
+        CONF_AC_POWER,
+        CONF_TEMP_1,
+        CONF_TEMP_2,
+        CONF_TEMP_3,
+    ]:
+        if key not in config:
+            continue
+        conf = config[key]
+        sens = await sensor.new_sensor(conf)
+        cg.add(getattr(var, f"set_{key}_sensor")(sens))
