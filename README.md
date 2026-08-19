@@ -1,5 +1,3 @@
-# UNSTABLE - WORK IN PROGRESS
-
 # esphome-diehl-platinum
 Esphome component to readout one standalone diehl platinum solar inverter (to use in Home Assistant).
 
