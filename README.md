@@ -1,39 +1,76 @@
 # UNSTABLE - WORK IN PROGRESS
 
 # esphome-diehl-platinum
-Esphome component to readout one standalone diehl platinum solar inverters (to use in Home Assistant).
+Esphome component to readout one standalone Diehl Platinum solar inverters (to use in Home Assistant).
 
-| Quantity | Unit |
-|----------|----------|
-| Day energy   | Wh   |
-| Power   | W   |
+| Quantity | Unit | ESPHome config key |
+|----------|------|--------------------|
+| Day energy | Wh | `day_energy` |
+| Power | W | `power` |
+| Status | – (raw code) | `status` |
+| Event | – (raw code) | `event` |
+| DC Voltage | V | `dc_voltage` |
+| DC Current | A | `dc_current` |
+| DC Power | W | `dc_power` |
+| AC Voltage | V | `ac_voltage` |
+| AC Current | A | `ac_current` |
+| AC Power | W | `ac_power` |
+| Temperature 1 | °C | `temp_1` |
+| Temperature 2 | °C | `temp_2` |
+| Temperature 3 | °C | `temp_3` |
 
-## Example YAML (used in ESPHome):
-```YAML
+## Example YAML (used in ESPHome)
+
+```yaml
 external_components:
-   - source: github://ThatGuyOliver/esphome-diehl-platinum@main
-     components: [ diehl ]
+  - source: github://ThatGuyOliver/esphome-diehl-platinum@main
+    components: [ diehl ]
 
 uart:
   - baud_rate: 19200
     tx_pin: GPIO17
     rx_pin: GPIO16
-    
+
 time:
   - platform: homeassistant
 
 sensor:
   - platform: diehl
     power:
-      name: 'Power'
+      name: "Power"
     day_energy:
-      name: 'Day energy' 
+      name: "Day energy"
+    status:
+      name: "Status"
+    event:
+      name: "Event"
+    dc_voltage:
+      name: "DC Voltage"
+    dc_current:
+      name: "DC Current"
+    dc_power:
+      name: "DC Power"
+    ac_voltage:
+      name: "AC Voltage"
+    ac_current:
+      name: "AC Current"
+    ac_power:
+      name: "AC Power"
+    temp_1:
+      name: "Temperature 1"
+    temp_2:
+      name: "Temperature 2"
+    temp_3:
+      name: "Temperature 3"
 ```
 
 ## Hardware
+
 ### ESP board
-An ESP board that will run the ESPHome program
+An ESP board that will run the ESPHome program.
+
 ### Adapter
-Connect to the inverter trough a Max232 TTL => RS232 converter. ( e.g. https://aliexpress.com/item/1005006513010110.html)
+Connect to the inverter through a MAX232 TTL ⇒ RS232 converter (e.g. https://aliexpress.com/item/1005006513010110.html).
+
 ### Cable
-You also need a connector/cable with 2 MALE DB9 connectors. (e.g. https://aliexpress.com/item/1005002471223441.html)
+You also need a connector/cable with 2 MALE DB9 connectors (e.g. https://aliexpress.com/item/1005002471223441.html).
