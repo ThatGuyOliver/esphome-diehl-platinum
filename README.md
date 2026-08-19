@@ -1,3 +1,5 @@
+#UNSTABLE - WORK IN PROGRESS
+
 # esphome-diehl-platinum
 Esphome component to readout diehl platinum solar inverters
 
@@ -24,4 +26,4 @@ sensor:
 ```
 
 ## hardware
-Connect to the inverter trough a Max232 TTL => RS232 converter like [this one].(https://nl.aliexpress.com/item/1005006513010110.html?spm=a2g0o.order_list.order_list_main.11.1e8679d2sS3KLx&gatewayAdapt=glo2nld)
+Connect to the inverter trough a Max232 TTL => RS232 converter like [this one].(https://nl.aliexpress.com/item/1005006513010110.html?gatewayAdapt=glo2nld)
