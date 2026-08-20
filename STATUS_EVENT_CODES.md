@@ -103,32 +103,6 @@ Informational messages, typically stored in event memory.
 
 ---
 
-## Troubleshooting
-
-### Status 0 (Off/Fault)
-
-| Event | Action |
-|-------|--------|
-| 90 | Check AC grid voltage, verify AC breaker is ON |
-| 91 | Check DC PV array voltage, verify DC switch is ON |
-| 92 | Check DC polarity (+/-), reconnect DC |
-| 93 | Check DC insulation, contact service |
-| 94-95 | Contact service (internal fault) |
-
-### Status 2 (Warning)
-
-| Event | Action |
-|-------|--------|
-| 220-221 | Check ventilation, clean air filters, reduce load |
-| 274 | Check PV array configuration, verify DC voltage |
-| 353 | Check RS232/RS485 connections |
-
-### Status 1 (Normal) with Event > 0
-
-Inverter is still operating but logging warnings. Monitor the situation and address the underlying cause.
-
----
-
 ## References
 
 - Diehl Platinum Event List (official documentation)
