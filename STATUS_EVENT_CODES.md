@@ -48,20 +48,20 @@ sensor:
 
 These errors cause the inverter to stop production.
 
-| Event | Code | Description | Possible Cause | Action |
-|-------|------|-------------|----------------|--------|
-| **90** | AC High | AC voltage too high | Grid voltage exceeds limits | Check AC connection, measure grid voltage |
-| **91** | DC High | DC voltage too high | PV array voltage exceeds limits | Check DC connection, measure PV voltage |
-| **92** | DC Connection | DC connection not OK | DC polarity reversed | Disconnect DC, check polarity |
-| **93** | Insulation | Insulation fault | DC insulation failure | Disconnect DC, check insulation |
-| **94** | Internal Fault | Internal system fault | Hardware failure | Contact service |
-| **95** | Internal Fault | Internal system fault | Hardware failure | Contact service |
-| **101-102** | Internal Fault | Internal system fault | Hardware failure | Contact service |
-| **106-108** | Internal Fault | Internal system fault | Hardware failure | Contact service |
-| **110** | Relay Error | Relay fault | Relay malfunction | Contact service |
-| **111-114** | Internal Fault | Internal system fault | Hardware failure | Contact service |
-| **121-127** | Internal Fault | Internal fault / Country setting | Hardware or configuration | Contact service |
-| **130** | L/N Swapped | L and N swapped | AC wiring error | Check AC connection (L/N) |
+| Event | Code | Description | Possible Cause |
+|-------|------|-------------|----------------|
+| **90** | AC High | AC voltage too high | Grid voltage exceeds limits | 
+| **91** | DC High | DC voltage too high | PV array voltage exceeds limits | 
+| **92** | DC Connection | DC connection not OK | DC polarity reversed | 
+| **93** | Insulation | Insulation fault | DC insulation failure | 
+| **94** | Internal Fault | Internal system fault | Hardware failure | 
+| **95** | Internal Fault | Internal system fault | Hardware failure | 
+| **101-102** | Internal Fault | Internal system fault | Hardware failure | 
+| **106-108** | Internal Fault | Internal system fault | Hardware failure | 
+| **110** | Relay Error | Relay fault | Relay malfunction |
+| **111-114** | Internal Fault | Internal system fault | Hardware failure | 
+| **121-127** | Internal Fault | Internal fault / Country setting | Hardware or configuration | 
+| **130** | L/N Swapped | L and N swapped | AC wiring error |
 
 ---
 
