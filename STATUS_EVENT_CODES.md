@@ -1,3 +1,5 @@
+⚠️ WORK IN PROGRESS - I have not confirmed these codes, it's a compilation of what I've found online.
+
 # Diehl Platinum S-Series Status & Event Codes
 
 > ℹ️ These codes are returned by the ESPHome component as `status` and `event` sensors.
