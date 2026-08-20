@@ -35,3 +35,7 @@ An ESP board that will run the ESPHome program
 Connect to the inverter trough a Max232 TTL => RS232 converter. ( e.g. https://aliexpress.com/item/1005006513010110.html)
 ### Cable
 You also need a connector/cable with 2 MALE DB9 connectors. (e.g. https://aliexpress.com/item/1005002471223441.html)
+
+## Disclaimer
+This is a community project. Use at your own risk.
+This project is based on Roeland Lutters’ original ESPHome Diehl Platinum component.
