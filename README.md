@@ -108,3 +108,4 @@ You need a connector/cable with **2 MALE DB9 connectors**:
 
 ## Disclaimer
 This is a community project. Use at your own risk.
+This project is based on Roeland Lutters’ original ESPHome Diehl Platinum component and includes reverse engineering of Stendec’s RS_diehl.c.
