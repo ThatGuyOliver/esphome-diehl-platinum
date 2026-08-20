@@ -1,26 +1,19 @@
 # Diehl Platinum S-Series Status & Event Codes
 
+> ℹ️ These codes are returned by the ESPHome component as `status` and `event` sensors.
 ## Overview
 
-This document describes the status and event codes used by Diehl Platinum S-series inverters (2100 S, 3200 S, 3800 S, 4600 S, 4601 S). These codes are returned when reading data via the RS232 interface using the protocol implemented in `RS_diehl.c`.
+This document describes the status and event codes used by Diehl Platinum S-series inverters (2100 S, 3200 S, 3800 S, 4600 S, 4601 S). These codes correspond to "status" and "event" sensors in the ESPHome component.
 
-## Data Format
-
-When reading interval data (command 18) or summary data (command 19), the response contains:
-
-- **Byte 7**: Status code
-- **Byte 8**: Event code
-
-```c
-// From RS_diehl.c
-f4_i = buffer[7];  // Status code
-f5_i = buffer[8];  // Event code
-
-printf("Status: %02d\n", buffer[7]);
-printf("Event: %02d\n", buffer[8]);
+**In ESPHome:**
+```yaml
+sensor:
+  - platform: diehl
+    status:
+      name: "Status"  # Returns codes 0, 1, 2, 3, etc.
+    event:
+      name: "Event"   # Returns codes 0, 90, 91, 220, etc.
 ```
-
----
 
 ## Status Codes
 
@@ -105,47 +98,6 @@ Informational messages, typically stored in event memory.
 | **502** | Frequency Error | Frequency error | Grid frequency fault |
 | **514** | Internal Fault | Internal fault | Internal error logged |
 | **515** | Update Firmware | Firmware update | Firmware update required |
-
----
-
-## Reading Status and Event in Code
-
-### Example from `RS_diehl.c`
-
-```c
-// Parse status and event from response buffer
-f4_i = buffer[7];  // Status code
-f5_i = buffer[8];  // Event code
-
-// Print to console
-printf("Status: %02d\n", buffer[7]);
-printf("Event: %02d\n", buffer[8]);
-
-// Store in database
-sprintf(query, "INSERT INTO Detail (..., Status, Event, ...) VALUES (..., %d, %d, ...);", 
-        f4_i, f5_i);
-mysql_query(connection, query);
-```
-
-### Example Response Interpretation
-
-```
-Status: 01
-Event: 00
-```
-→ **Normal operation**, inverter is producing with no faults ✅
-
-```
-Status: 00
-Event: 91
-```
-→ **Fault 91**: DC voltage too high, inverter stopped ❌
-
-```
-Status: 02
-Event: 220
-```
-→ **Warning 220**: Temperature too high, operating with reduced performance ⚠️
 
 ---
 
