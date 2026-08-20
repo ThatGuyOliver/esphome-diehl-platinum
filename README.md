@@ -1,7 +1,30 @@
-# UNSTABLE - WORK IN PROGRESS
+⚠️ **UNSTABLE - WORK IN PROGRESS** - Use at your own risk!
 
+This component is in active development.
+
+    Use at your own risk
+
+    No guarantees provided
+
+    Test thoroughly before relying on it
+
+    Backup your configuration before installing
+    
 # esphome-diehl-platinum
-Esphome component to readout one standalone Diehl Platinum solar inverters (to use in Home Assistant).
+
+ESPHome custom component to read out Diehl Platinum S-series solar inverters via RS232.
+
+## Features:
+
+- Real-time power monitoring (DC/AC voltage, current, power)
+
+- Daily energy production
+
+- Inverter status and event codes
+
+- Temperature monitoring (3 sensors)
+
+- Native ESPHome integration (works with Home Assistant)
 
 | Quantity | Unit | ESPHome config key |
 |----------|------|--------------------|
@@ -18,6 +41,10 @@ Esphome component to readout one standalone Diehl Platinum solar inverters (to u
 | Temperature 1 | °C | `temp_1` |
 | Temperature 2 | °C | `temp_2` |
 | Temperature 3 | °C | `temp_3` |
+
+### Status & Event Codes
+
+See [STATUS_EVENT_CODES.md](STATUS_EVENT_CODES.md) for the list of Error and Event codes.
 
 ## Example YAML (used in ESPHome)
 
@@ -64,13 +91,20 @@ sensor:
       name: "Temperature 3"
 ```
 
-## Hardware
+### Hardware
 
-### ESP board
-An ESP board that will run the ESPHome program.
+### ESP32 Board
+An ESP32 board that runs ESPHome
 
-### Adapter
-Connect to the inverter through a MAX232 TTL ⇒ RS232 converter (e.g. https://aliexpress.com/item/1005006513010110.html).
+### RS232 Adapter
+Connect to the inverter through a **MAX232 TTL ⇄ RS232** converter:
+- Example: [AliExpress](https://aliexpress.com/item/1005006513010110.html)
 
-### Cable
-You also need a connector/cable with 2 MALE DB9 connectors (e.g. https://aliexpress.com/item/1005002471223441.html).
+### Connector/Cable
+You need a connector/cable with **2 MALE DB9 connectors**:
+- Example: [AliExpress](https://aliexpress.com/item/1005002471223441.html)
+
+### Wiring Diagram
+
+## Disclaimer
+This is a community project. Use at your own risk.
