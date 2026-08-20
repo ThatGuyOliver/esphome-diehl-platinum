@@ -84,9 +84,10 @@ void DiehlComponent::setup() {
 }
 
 void DiehlComponent::update() {
-  if (finding_last_index){
+  if (finding_last_index) {
     return;
   }
+
   ESP_LOGI(TAG, "update called");
   update_time();
 
@@ -94,18 +95,71 @@ void DiehlComponent::update() {
   for (int i = (last_valid_index + 1); !end_of_list; i++) {
     fetch_data(i);
   }
-
-	float power = 0;
+  float power = 0;
   if ((rx_msg[17] * 256 + rx_msg[18]) != 0) {
-    power = (rx_msg[17]*256+rx_msg[18])/10.0;
+    power = (rx_msg[17] * 256 + rx_msg[18]) / 10.0;
   }
 
-	float day_energy = rx_msg[19]*256*256*256+rx_msg[20]*256*256+rx_msg[21]*256+rx_msg[22];
+  float day_energy = rx_msg[19] * 256 * 256 * 256 +
+                     rx_msg[20] * 256 * 256 +
+                     rx_msg[21] * 256 +
+                     rx_msg[22];
 
-  this->power_sensor_->publish_state(power);
-  if (day_energy != 0.0){
-    this->day_energy_sensor_->publish_state(day_energy);
-  }
+    if (this->power_sensor_ != nullptr) {
+      this->power_sensor_->publish_state(power);
+    }
+    if (this->day_energy_sensor_ != nullptr && day_energy != 0.0) {
+      this->day_energy_sensor_->publish_state(day_energy);
+    }
+
+    // New sensors
+    if (this->status_sensor_ != nullptr) {
+      this->status_sensor_->publish_state(rx_msg[7]);
+    }
+    if (this->event_sensor_ != nullptr) {
+      this->event_sensor_->publish_state(rx_msg[8]);
+    }
+
+    // DC Voltage: buffer[9]*256+buffer[10]
+    if (this->dc_voltage_sensor_ != nullptr) {
+      this->dc_voltage_sensor_->publish_state(rx_msg[9] * 256 + rx_msg[10]);
+    }
+
+    // DC Current: buffer[11]
+    if (this->dc_current_sensor_ != nullptr) {
+      this->dc_current_sensor_->publish_state(rx_msg[11]);
+    }
+
+    // DC Power: buffer[12]*256+buffer[13]
+    if (this->dc_power_sensor_ != nullptr) {
+      this->dc_power_sensor_->publish_state(rx_msg[12] * 256 + rx_msg[13]);
+    }
+
+    // AC Voltage: buffer[14]*256+buffer[15]
+    if (this->ac_voltage_sensor_ != nullptr) {
+      this->ac_voltage_sensor_->publish_state(rx_msg[14] * 256 + rx_msg[15]);
+    }
+
+    // AC Current: buffer[16]
+    if (this->ac_current_sensor_ != nullptr) {
+      this->ac_current_sensor_->publish_state(rx_msg[16]);
+    }
+
+    // AC Power: buffer[17]*256+buffer[18]
+    if (this->ac_power_sensor_ != nullptr) {
+      this->ac_power_sensor_->publish_state(rx_msg[17] * 256 + rx_msg[18]);
+    }
+
+    // Temp 1/2/3: buffer[23..25]
+    if (this->temp_1_sensor_ != nullptr) {
+      this->temp_1_sensor_->publish_state(rx_msg[23]);
+    }
+    if (this->temp_2_sensor_ != nullptr) {
+      this->temp_2_sensor_->publish_state(rx_msg[24]);
+    }
+    if (this->temp_3_sensor_ != nullptr) {
+      this->temp_3_sensor_->publish_state(rx_msg[25]);
+    }
 }
 
 void DiehlComponent::loop() {
@@ -248,4 +302,4 @@ int DiehlComponent::convert_to_seconds(int hour, int minute, int second) {
   return hour * 3600 + minute * 60 + second;
 }
 }  // namespace diehl
-}  // namespace esphome
+} // namespace esphome
