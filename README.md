@@ -1,4 +1,4 @@
-⚠️ **UNSTABLE - WORK IN PROGRESS** - Use at your own risk!
+⚠️ **BROKEN - WORK IN PROGRESS** - Use at your own risk!
 
 This component is in active development.
 
