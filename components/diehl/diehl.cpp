@@ -6,7 +6,7 @@ namespace esphome {
 namespace diehl {
 
 unsigned char tx_msg[11];
-unsigned char rx_msg[30];
+unsigned char rx_msg[45];
 int current_day_of_year = 0;
 int last_valid_index = 0;
 bool end_of_list = false;
