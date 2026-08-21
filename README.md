@@ -25,6 +25,7 @@ ESPHome custom component to read out Diehl Platinum S-series solar inverters via
 - Temperature monitoring (3 sensors)
 
 - Native ESPHome integration (works with Home Assistant)
+## Detail-mode (15-minute data)
 
 | Quantity | Unit | ESPHome config key |
 |----------|------|--------------------|
@@ -41,6 +42,28 @@ ESPHome custom component to read out Diehl Platinum S-series solar inverters via
 | Temperature 1 | °C | `temp_1` |
 | Temperature 2 | °C | `temp_2` |
 | Temperature 3 | °C | `temp_3` |
+
+## Summary-mode (Daily data)
+
+| Quantity | Unit | ESPHome config key |
+|----------|------|--------------------|
+| Date | YYYY-MM-DD | `date` |
+| DC Voltage Peak | V | `dc_voltage_peak` |
+| DC Voltage Mean | V | `dc_voltage_mean` |
+| DC Current Peak | A | `dc_current_peak` |
+| DC Current Mean | A | `dc_current_mean` |
+| DC Power Peak | W | `dc_power_peak` |
+| DC Power Mean | W | `dc_power_mean` |
+| AC Voltage Peak | V | `ac_voltage_peak` |
+| AC Voltage Mean | V | `ac_voltage_mean` |
+| AC Current Peak | A | `ac_current_peak` |
+| AC Current Mean | A | `ac_current_mean` |
+| AC Power Peak | W | `ac_power_peak` |
+| AC Power Mean | W | `ac_power_mean` |
+| Day Energy | Wh | `day_energy` |
+| Total Energy Sum | Wh | `energy_sum` |
+| Temperature Peak | °C | `temp_peak` |
+
 
 ### Status & Event Codes
 
