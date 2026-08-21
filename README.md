@@ -85,32 +85,80 @@ time:
 
 sensor:
   - platform: diehl
+    # Real-time power (15 min?)
     power:
       name: "Power"
+    
+    # Energy
     day_energy:
       name: "Day energy"
+    
+    # Status & Events
     status:
       name: "Status"
     event:
       name: "Event"
+    
+    # DC measurements
     dc_voltage:
       name: "DC Voltage"
     dc_current:
       name: "DC Current"
     dc_power:
       name: "DC Power"
+    
+    # AC measurements
     ac_voltage:
       name: "AC Voltage"
     ac_current:
       name: "AC Current"
     ac_power:
       name: "AC Power"
+    
+    # Temperatures
     temp_1:
       name: "Temperature 1"
     temp_2:
       name: "Temperature 2"
     temp_3:
       name: "Temperature 3"
+    
+    # Summary (daily totals) - requires summary branch
+    # DC measurements
+    dc_voltage_peak:
+      name: "DC Voltage Peak"
+    dc_voltage_mean:
+      name: "DC Voltage Mean"
+    dc_current_peak:
+      name: "DC Current Peak"
+    dc_current_mean:
+      name: "DC Current Mean"
+    dc_power_peak:
+      name: "DC Power Peak"
+    dc_power_mean:
+      name: "DC Power Mean"
+
+    # AC measurements
+    ac_voltage_peak:
+      name: "AC Voltage Peak"
+    ac_voltage_mean:
+      name: "AC Voltage Mean"
+    ac_current_peak:
+      name: "AC Current Peak"
+    ac_current_mean:
+      name: "AC Current Mean"
+    ac_power_peak:
+      name: "AC Power Peak"
+    ac_power_mean:
+      name: "AC Power Mean"
+    
+    # Energy
+    energy_sum:
+      name: "Total Energy Sum"
+
+    # Temperatures
+    temp_peak:
+      name: "Temperature Peak"
 ```
 
 ### Hardware
