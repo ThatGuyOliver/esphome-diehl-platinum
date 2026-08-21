@@ -43,6 +43,10 @@ ESPHome custom component to read out Diehl Platinum S-series solar inverters via
 | Temperature 2 | °C | `temp_2` |
 | Temperature 3 | °C | `temp_3` |
 
+### Status & Event Codes
+
+See [STATUS_EVENT_CODES.md](STATUS_EVENT_CODES.md) for the list of Error and Event codes.
+
 ## Summary-mode (Daily data)
 
 | Quantity | Unit | ESPHome config key |
@@ -63,11 +67,6 @@ ESPHome custom component to read out Diehl Platinum S-series solar inverters via
 | Day Energy | Wh | `day_energy` |
 | Total Energy Sum | Wh | `energy_sum` |
 | Temperature Peak | °C | `temp_peak` |
-
-
-### Status & Event Codes
-
-See [STATUS_EVENT_CODES.md](STATUS_EVENT_CODES.md) for the list of Error and Event codes.
 
 ## Example YAML (used in ESPHome)
 
